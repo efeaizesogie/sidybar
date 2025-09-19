@@ -1,0 +1,114 @@
+
+*{
+    margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif;
+}
+
+.sidebar{
+    width: 200px; 
+    height: 100vh; 
+    background-color: #f0f0f0; 
+    position: fixed; 
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+    transition: width 0.3s ease-in-out;
+}
+
+.collapsed{
+    width: 60px; 
+}
+
+.logo-container, .icon-wrapper{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin: 20px auto; 
+    text-align: center; 
+    border-radius: 100%; 
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.logo{
+    width: 20px; 
+    height: 20px;
+}
+
+.nav-links{
+    list-style: none; 
+    padding: 0; 
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-links li{
+    width: 100%; 
+    text-align: center;
+}
+
+.nav-links li a.nav-link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 0; 
+    text-decoration: none; 
+    color: rgb(68, 68, 68);
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-icons {
+    width: 20px; 
+    height: 20px;
+    filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(27%) contrast(68%);
+    transition: filter 0.3s ease;
+}
+
+.nav-links li a.active .nav-icons {
+    filter: invert(32%) sepia(98%) saturate(746%) hue-rotate(210deg) brightness(95%) contrast(85%);
+}
+
+.nav-links li a:hover{
+    background-color: #e0e0e0; 
+    color: #000000;
+     transform: translateX(5px);
+}
+
+.nav-links li a.active{
+    color: #007bff; 
+    font-weight: 600;
+    background-color: #e0e0e0;
+    border-left: 4px solid #007bff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.hidden{
+    display: none;
+}
+
+.icon-wrapper {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.sidebar.collapsed .icon-wrapper .icon {
+    transform: rotate(180deg);
+}
+
+.nav-link span {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar.collapsed .nav-link span {
+    opacity: 0;
+    transform: translateX(-10px);
+}
