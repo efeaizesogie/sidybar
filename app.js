@@ -17,17 +17,23 @@
                         }
                     });
 
+                    document.addEventListener('DOMContentLoaded', () => {
+                    const navLinks = document.querySelectorAll('.nav-link');
+
+                    function clearActive() {
+                        document.querySelector('.nav-link.active')?.classList.remove('active');
+                    }
+
+                    
+                    const currentHash = window.location.hash || '#home';
+                    clearActive();
+                    document.querySelector(`.nav-link[href="${currentHash}"]`)?.classList.add('active');
 
                     navLinks.forEach(link => {
-                        link.addEventListener('click', (event) => {
-                            // Check if the clicked link is already active
-                            if (link.classList.contains('active')) return;  
-                            
-                            // Remove the 'active' class from the currently active link
-                            document.querySelector('.nav-link.active').classList.remove('active');
-                            
-                            // Add the 'active' class to the clicked link
-                            event.currentTarget.closest('.nav-link').classList.add('active');
+                        link.addEventListener('click', (e) => {
+                        
+                        clearActive();
+                        e.currentTarget.classList.add('active');
                         });
                     });
-
+});
